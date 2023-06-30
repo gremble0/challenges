@@ -1,4 +1,5 @@
 class Solution(object):
+    # Rolling window
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
@@ -13,11 +14,10 @@ class Solution(object):
                 current_length += 1
                 longest_length = max(current_length, longest_length)
             else:
-                for i in range(0, len(current)):
-                    if current[i] == c:
-                        current = current[1:]
-                        break
+                i = 0
+                while current[i] != c:
                     current = current[1:]
+                current = current[1:]
                 current += c
                 current_length = len(current)
                 longest_length = max(current_length, longest_length)
@@ -26,4 +26,4 @@ class Solution(object):
         return longest_length
 
 s = Solution()
-print(s.lengthOfLongestSubstring("abbb"))
+print(s.lengthOfLongestSubstring("pwwkew"))
