@@ -21,9 +21,5 @@ class Solution(object):
                 current += c
                 current_length = len(current)
                 longest_length = max(current_length, longest_length)
-            print(current)
 
         return longest_length
-
-s = Solution()
-print(s.lengthOfLongestSubstring("pwwkew"))
