@@ -6,18 +6,8 @@ class ListNode(object):
 
 class Solution(object):
     def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-        s = ""
-        
-        while head.next is not None:
-            s+= str(head.val)
+        l = []
+        while head:
+            l.append(head.val)
             head = head.next
-
-        s += str(head.val)
-        
-        if s[::-1] == s:
-            return True 
-        return False
+        return l == l[::-1]
