@@ -17,6 +17,3 @@ class Solution(object):
             iter = ""
 
         return longest
-
-a = Solution()
-print(a.longestPalindrome("a"))
