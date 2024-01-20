@@ -4,18 +4,16 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        def areaBetween(index1, index2):
-            return min(height[index1], height[index2]) * (index2 - index1)
+        left = 0
+        right = len(height)
+        highest = 0
 
-        def maxFrom(index):
-            max_seen = 0
-            for i in range(index, len(height)):
-                max_seen = max(max_seen, areaBetween(index, i))
+        while left < right:
+            area = min(height[left], height[right]) * (right - left)
+            highest = max(highest, area)
+            if height[left] > height[right]:
+                right = right - 1
+            else:
+                left = left + 1
 
-            return max_seen
-                
-        areas = []
-        for i in range(0, len(height)):
-            areas.append(maxFrom(i))
-
-        return max(areas)
+        return highest
